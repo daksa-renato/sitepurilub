@@ -20,7 +20,12 @@ export function Footer() {
     ["Equipamentos", ["P-C2RS®", "P-EFO-SVR", "Linha P-EFO", "P-TVF · P-CVF", "Filtros B21 · C05 · C15", "Respiros TTI"]],
     ["Empresa", ["Quem somos", "Meio ambiente", "Clientes", "Blog técnico", "E-books", "Trabalhe conosco", "LGPD"]],
   ];
-  const seals = [["selo-dqs.png", "DQS"], ["selo-iqnet.png", "IQNet"], ["selo-ulfirm.png", "UL"]];
+  const SL = "/img/selos/";
+  const seals = [
+    [SL + "selo-dqs-certificacao-iso-9001-14001-purilub.webp", "DQS", 70, 56],
+    [SL + "selo-iqnet-the-international-certification-network-purilub.webp", "IQNet, The International Certification Network", 109, 52],
+    [SL + "selo-ul-registered-firm-purilub.webp", "UL Registered Firm", 62, 62],
+  ];
   return (
     <footer className="ft">
       <div className="wrap">
@@ -37,7 +42,12 @@ export function Footer() {
           <div className="ft-h">Certificações e credenciais</div>
           <div className="seals2">
             {[["award", "ISO 9001:2015", "Gestão da qualidade"], ["leaf", "ISO 14001:2015", "Gestão ambiental"], ["shield", "DQS · IQNet · UL", "Organismos certificadores"], ["spark", "Patente INPI", "Processo de filtragem próprio"], ["globe", "TTI · EPT Clean Oil", "Distribuidora oficial no Brasil"]].map(([ic, b, t]) => (
-              <div key={b} className="seal2"><span className="seal2-ic"><Icon n={ic} s={22} w={1.3} /></span><div><b>{b}</b><span>{t}</span></div></div>
+              ic === "shield" ? (
+                <div key={b} className="seal2 seal2-logos">
+                  <span className="seal2-lg">{seals.map(([src, alt, w, h]) => <img key={alt} src={src} alt={"Selo " + alt} width={w} height={h} loading="lazy" />)}</span>
+                  <div><b className="sr-only">{b}</b><span>{t}</span></div>
+                </div>
+              ) : <div key={b} className="seal2"><span className="seal2-ic"><Icon n={ic} s={22} w={1.3} /></span><div><b>{b}</b><span>{t}</span></div></div>
             ))}
           </div>
         </div>

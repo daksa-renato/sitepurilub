@@ -935,3 +935,47 @@ html body,html body *{font-family:"Montserrat","Gotham","Helvetica Neue",Arial,s
 /* menu do celular: itens agrupados pela coluna */
 .dr-g{padding-bottom:10px}
 .dr-h{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);padding:8px 0 2px 12px}
+
+/* Selos DQS · IQNet · UL (brancos) no rodapé */
+.seal2-logos{flex-direction:column;align-items:flex-start;justify-content:center;gap:8px}
+.seal2.seal2-logos .seal2-lg{display:flex;align-items:center;gap:14px;margin-top:0}
+.seal2-lg img{height:40px;width:auto;opacity:.95}
+.seal2-lg img[alt*="IQNet"]{height:36px}
+.seal2-logos span:not(.seal2-lg){margin-top:0}
+
+/* Celular: seções removidas para a página ficar mais leve (Como trabalhamos, Marcas, Laboratório, Setores).
+   Com display:none, as imagens lazy dessas seções não chegam a ser baixadas. */
+@media (max-width:767px){.no-mob{display:none!important}}
+
+/* Laboratório: ilustração em azul. A imagem fica sempre ancorada à esquerda e na altura total da seção;
+   o fundo usa o mesmo azul da borda direita da ilustração, então telas mais largas continuam azuis.
+   O card fica à direita, sobre a área mais vazia, sem cobrir a técnica. */
+.lab{background:#02398D}
+.lab-photo{background:#02398D}
+.lab-photo:after{display:none}
+.lab-ph{position:absolute;left:0;top:0;height:100%;width:auto;max-width:none;object-fit:fill}
+.lab-in{justify-content:flex-end}
+.lab-in{padding-top:44px;padding-bottom:44px}
+.lab-card{width:680px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:center;padding:28px 30px;border-radius:20px}
+.lab-card .ttl h2{font-size:22px;line-height:1.15}
+.lab-card .eb{margin-bottom:12px}
+.lab-card .eb-line{width:32px}
+.lab-card .eb-t{white-space:nowrap;font-size:11px}
+.lab-card .ttl{margin-bottom:0}
+.lab-card p{margin:8px 0 14px;font-size:13px;line-height:1.5}
+.lab-cta{gap:14px}
+.lab-cta .btn{padding:11px 18px;font-size:13.5px}
+.lab-cta .lnk{font-size:13.5px}
+.lab-ul{margin-top:0;padding:2px 16px}
+.lab-ul li{padding:7px 0;font-size:12.5px;line-height:1.3;gap:9px}
+@media (max-width:880px){.lab-card{width:100%;grid-template-columns:1fr}}
+
+/* Faixa "Fale com um especialista": ilustração alinhada à direita, sempre na altura total;
+   fundo no mesmo azul da ilustração (#02398D), sem os círculos decorativos. */
+.band{background:#02398D}
+.band:after{display:none}
+.band-img{position:absolute;right:0;top:0;height:100%;width:auto;max-width:none;pointer-events:none;user-select:none}
+.band-in{justify-content:flex-start;padding-top:80px;padding-bottom:80px}
+.band-l{max-width:560px}
+.band-l .btn{margin-top:28px}
+@media (max-width:767px){.band-img{opacity:.3}.band-in{padding-top:60px;padding-bottom:60px}}

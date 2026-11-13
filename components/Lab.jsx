@@ -10,8 +10,8 @@ import { Img } from "./Img";
 
 export function Lab() {
   return (
-    <section className="lab" id="laboratorio">
-      <div className="lab-photo"><Img src={R + "2023/03/bg_solucoes.webp"} alt="Análise de óleo em laboratório" className="lab-ph" fallback={<img src={imgD3} alt="" className="lab-ph" />} /></div>
+    <section className="lab no-mob" id="laboratorio">
+      <div className="lab-photo"><img src="/img/laboratorio-analise-de-oleo-ilustracao-purilub.webp" alt="Ilustração de técnica analisando amostras de óleo no laboratório da Purilub" className="lab-ph" width={2000} height={581} loading="lazy" /></div>
       <div className="wrap lab-in">
         <motion.div className="lab-card" {...rev(0, 40)}>
           <div className="lab-l">

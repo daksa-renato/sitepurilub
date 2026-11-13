@@ -9,9 +9,12 @@ import { go, Inner, useInner, ease, rev, L, Fade } from "./helpers";
 export function Band() {
   return (
     <div className="band">
+      <img className="band-img" src="/img/especialista-purilub-operando-equipamento-ilustracao.webp" alt="Ilustração de técnico da Purilub operando o painel de um equipamento de tratamento de óleo" width={1683} height={800} loading="lazy" />
       <div className="wrap band-in">
-        <div><span className="mono xs">NÃO SABE QUAL SOLUÇÃO ESPECIFICAR?</span><h2>Conte o problema.<br />A gente indica o caminho.</h2></div>
-        <div className="band-r"><button className="btn btn-or lg" onClick={() => go("contato")}>Fale com um especialista <Icon n="arrow" s={18} /></button><a className="band-ph" href="tel:+551639819920"><Icon n="phone" s={16} /> 16 3981-9920</a></div>
+        <div className="band-l">
+          <span className="mono xs">NÃO SABE QUAL SOLUÇÃO ESPECIFICAR?</span><h2>Conte o problema.<br />A gente indica o caminho.</h2>
+          <button className="btn btn-or lg" onClick={() => go("contato")}>Fale com um especialista <Icon n="arrow" s={18} /></button>
+        </div>
       </div>
     </div>
   );

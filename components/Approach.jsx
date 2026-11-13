@@ -12,7 +12,7 @@ export function Approach() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 75%", "end 55%"] });
   const steps = [["Coleta e análise", "Medimos água, partículas, acidez e potencial de verniz no nosso laboratório."], ["Plano técnico", "Indicamos serviço, equipamento ou filtro conforme o laudo e a sua operação."], ["Execução na planta", "Equipe, frota e equipamentos próprios, dentro das normas de segurança do cliente."], ["Laudo de resultado", "Novas análises comprovam a estabilização do óleo."]];
   return (
-    <section className="appr">
+    <section className="appr no-mob">
       <div className="appr-bg" aria-hidden="true" />
       <div className="wrap appr-in">
         <div className="appr-l">

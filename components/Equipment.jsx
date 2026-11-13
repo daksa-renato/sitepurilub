@@ -12,7 +12,7 @@ export function Equipment() {
   const [cat, setCat] = useState("Todos");
   const [more, setMore] = useState(false);
   useEffect(() => setMore(false), [cat]);
-  const list = (cat === "Todos" ? EQUIPMENTS : EQUIPMENTS.filter(e => e.c === cat)).filter(e => !["P-C2RS®", "P-EFO-SVR"].includes(e.t));
+  const list = (cat === "Todos" ? EQUIPMENTS : EQUIPMENTS.filter(e => e.c === cat)).filter(e => e.t !== "P-EFO-SVR");
   return (
     <section className="sec alt" id="equipamentos">
       <div className="wrap">
@@ -22,7 +22,7 @@ export function Equipment() {
         </div>
         <div className="feat">
           <motion.article className="fc" {...rev(0)}>
-            <div className="fc-img"><img src={imgC2rs} alt="P-C2RS® 3000" /></div>
+            <div className="fc-img"><img src="/img/equipamentos/p-c2rs-desidratacao-oleo-nitrogenio-contrafluxo.webp" alt="P-C2RS® 3000, sistema de desidratação de óleo com nitrogênio em contrafluxo" /></div>
             <div className="fc-b">
               <span className="mono xs mut">DESIDRATAÇÃO · NITROGÊNIO</span>
               <h3>P-C2RS® 3000</h3>

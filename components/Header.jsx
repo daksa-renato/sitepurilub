@@ -56,36 +56,27 @@ const MENUS = {
     ] },
     { h: "Filtros e respiros", s: "Reposição e proteção", items: [
       { t: "Spin-on B21", p: "Spin-on Série B21", d: "Sucção e retorno · até 160 lpm" },
-      { t: "Spin-on B12", p: "Spin-on Série B12", d: "Sucção e retorno · até 55 lpm", soon: true },
       { t: "Cartucho C05", d: "Retorno · até 500 lpm" },
       { t: "Cartucho C15", d: "Retorno · até 1.500 lpm" },
       { t: "Respiros dessecantes TTI", d: "PowerBreather™ Standard e CV" },
     ] },
-    { h: "Especiais", s: "Flushing, Diesel e monitoramento", items: [
+    { h: "Especiais", s: "Flushing e Diesel", items: [
       { t: "Sistema Diesel", p: "Sistema de filtração e separação de água do Diesel", d: "Filtração e separação de água" },
       { t: "Caminhão de flushing", d: "Para aerogeradores, em campo" },
       { t: "P-FEF · Bancadas de flushing", d: "Sob projeto · ISO 23309" },
-      { t: "P-ICM", d: "Contador de partículas a laser", soon: true },
     ] },
   ],
   "Marcas": [
-    { h: "TTI · Estados Unidos", items: ["Respiros PowerBreather™", "Modelo Standard", "Modelo CV", "Elementos filtrantes"] },
-    { h: "EPT Clean Oil · Canadá", items: ["P-EFO-SVR", "Resina iônica ICB®", "SVR® AW · RO · JET · FRF"] },
+    { h: "TTI", items: ["Respiros PowerBreather™", "Modelo Standard", "Modelo CV", "Elementos filtrantes"] },
+    { h: "EPT Clean Oil", items: ["P-EFO-SVR", "Resina iônica ICB®", "SVR® AW · RO · JET · FRF"] },
   ],
 };
 const item = (i) => (typeof i === "string" ? { t: i } : i);
-/* menus largos (sem a foto à direita): rodapé com atalho para a seção e para o contato */
+/* menus largos: rodapé com atalho para o contato */
 const WIDE = {
-  "Serviços": { q: "Não sabe qual serviço especificar?", all: "Ver todos os serviços", a: "servicos" },
-  "Equipamentos": { q: "Não sabe qual equipamento especificar?", all: "Ver todos os equipamentos", a: "equipamentos" },
+  "Serviços": { q: "Não sabe qual serviço especificar?" },
+  "Equipamentos": { q: "Não sabe qual equipamento especificar?" },
 };
-const FEAT = {
-  "Soluções": { img: imgD3, k: "Comece pelo diagnóstico", t: "Análise de óleo com laudo interpretado", a: "laboratorio" },
-  "Serviços": { img: imgD1, k: "Na sua planta", t: "Equipe, frota e equipamentos próprios", a: "servicos" },
-  "Equipamentos": { img: imgC2rs, k: "Lançamento", t: "P-C2RS®: desidratação com nitrogênio", a: "equipamentos" },
-  "Marcas": { img: imgIcb, k: "Distribuidora oficial", t: "TTI e EPT Clean Oil no Brasil", a: "marcas" },
-};
-
 /* Botão "Conteúdos": menu simples (sem mega menu) com os 3 materiais do site atual.
    Slugs atuais: /blog/, /ebooks-gratuitos/, /cases-de-sucesso/ */
 const CONTENT = [
@@ -148,17 +139,10 @@ export function Header({ onSearch }) {
                 <L key={i.t} className={"mega-a" + (i.d ? " has-d" : "")} page={i.p || i.t}><span className="mega-at"><b>{i.t}{i.soon && <em>em breve</em>}</b>{i.d && <span>{i.d}</span>}</span><Icon n="arrow" s={14} /></L>
               ))}</div>
             ))}
-            {!WIDE[open] && (
-              <button className="mega-f" onClick={() => { setOpen(null); go(FEAT[open].a); }}>
-                <img src={FEAT[open].img} alt="" />
-                <span className="mega-fo"><span className="tagline">{FEAT[open].k}</span><b>{FEAT[open].t}</b><span className="mega-fl">Conhecer <Icon n="arrow" s={14} /></span></span>
-              </button>
-            )}
           </motion.div>
           {WIDE[open] && (
             <div className="mega-ft"><div className="wrap mega-ft-in">
               <span>{WIDE[open].q} <button onClick={() => { setOpen(null); go("contato"); }}>Fale com um especialista <Icon n="arrow" s={14} /></button></span>
-              <button onClick={() => { const a = WIDE[open].a; setOpen(null); go(a); }}>{WIDE[open].all} <Icon n="arrow" s={14} /></button>
             </div></div>
           )}
         </motion.div>
@@ -174,7 +158,7 @@ export function Header({ onSearch }) {
           {Object.keys(SIMPLE).map(k => (
             <details key={k} className="dr-s"><summary>{k}<Icon n="chev" s={16} /></summary>{SIMPLE[k].map(c => (
               c.href ? <a key={c.t} className="dr-a" href={c.href} target="_blank" rel="noopener noreferrer">{c.t}</a>
-              : c.to ? <a key={c.t} className="dr-a" href={"#" + c.to} onClick={(e) => { e.preventDefault(); setMob(false); go(c.to); }}>{c.t}</a>
+              : c.to ? <a key={c.t} className="dr-a" href={"#" + c.to} onClick={(e) => { e.preventDefault(); setMob(false); if (!go(c.to)) openInner(c.t); }}>{c.t}</a>
               : <L key={c.t} className="dr-a" page={c.t}>{c.t}</L>
             ))}</details>
           ))}

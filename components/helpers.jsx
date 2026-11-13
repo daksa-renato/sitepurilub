@@ -5,7 +5,8 @@ import { Icon, WA } from "@/lib/icons";
 import { logoColor, logoWhite, logoIcon, logoIconW, imgC2rs, imgD1, imgD2, imgD3, imgSvrCut, imgIcb, imgDiesel } from "@/lib/assets";
 import { R, SHOWCASE, FAMILIES, SERVICES, EQUIP_CATS, EQUIPMENTS, CLIENTS, SECTORS, FAQ, SEARCH_INDEX } from "@/lib/data";
 
-export const go = (id) => { const el = document.getElementById(id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 76, behavior: "smooth" }); };
+/* rola até a seção; devolve false se ela não existe ou está oculta (ex.: seções .no-mob no celular) */
+export const go = (id) => { const el = document.getElementById(id); if (!el || !el.offsetParent) return false; window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 76, behavior: "smooth" }); return true; };
 export const Inner = React.createContext(() => {});
 export const useInner = () => React.useContext(Inner);
 export const ease = [0.2, 0.7, 0.2, 1];

@@ -10,7 +10,7 @@ import { Img } from "./Img";
 
 export function Sectors() {
   return (
-    <section className="sec" id="setores">
+    <section className="sec no-mob" id="setores">
       <div className="wrap">
         <div className="sh">
           <div><Title n="08" label="Setores" lines={["Onde o óleo move a operação,", "a Purilub está presente"]} /></div>

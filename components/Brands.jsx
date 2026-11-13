@@ -62,7 +62,7 @@ function BrandCard({ b, i }) {
 
 export function Brands() {
   return (
-    <section className="sec" id="marcas">
+    <section className="sec no-mob" id="marcas">
       <div className="wrap">
         <div className="sh">
           <div><Title n="06" label="Marcas representadas" lines={["Tecnologia internacional", "com suporte no Brasil"]} /></div>
