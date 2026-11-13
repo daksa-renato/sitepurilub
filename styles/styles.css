@@ -979,3 +979,7 @@ html body,html body *{font-family:"Montserrat","Gotham","Helvetica Neue",Arial,s
 .band-l{max-width:560px}
 .band-l .btn{margin-top:28px}
 @media (max-width:767px){.band-img{opacity:.3}.band-in{padding-top:60px;padding-bottom:60px}}
+
+/* Hero: selos ISO, cada um num retângulo de canto arredondado */
+.hero-iso{display:flex;flex-wrap:wrap;gap:10px}
+.hero-iso span{display:inline-flex;align-items:center;padding:7px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.35);color:#fff;font-size:13px;font-weight:500;letter-spacing:.02em;line-height:1.2}

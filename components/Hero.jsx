@@ -23,7 +23,7 @@ export function Hero() {
         </svg>
         <div className="wrap hero-in">
           <div className="hero-txt">
-            <motion.div className="eyebrow" {...h(0.25)}>Desde 1989 · ISO 9001 e ISO 14001</motion.div>
+            <motion.div className="hero-iso" {...h(0.25)} aria-label="Certificações ISO 9001 e ISO 14001"><span>ISO 9001</span><span>ISO 14001</span></motion.div>
             <h1>{["Filtração e purificação", "de óleos industriais"].map((t, i) => (
               <span className="ln" key={i}><motion.span className="ln-i" initial={{ y: "110%" }} animate={{ y: "0%" }} transition={{ duration: 1, delay: 0.35 + i * 0.12, ease }}>{t}</motion.span></span>
             ))}</h1>
